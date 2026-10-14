@@ -119,7 +119,7 @@ namespace Studentska.WinApp.IB250000
             && sp.ProjekatId==odabraniProjekatId && !sp.Arhivirana);
             if (dvijePrijave)
             {
-                MessageBox.Show("Student ima registrovanu već jednu prijavu na drugi projekat!",
+                MessageBox.Show("Student ima registrovanu već jednu prijavu na ovom projektu!",
                     "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
@@ -139,7 +139,7 @@ namespace Studentska.WinApp.IB250000
             //4h
             int brojPrijava = svePrijave.Count(sp => sp.ProjekatId == odabraniProjekatId && 
             sp.StatusPrijave=="PRIHVACENA"&&
-            sp.Id==prijavaId);
+            sp.Id!=prijavaId);
             if (brojPrijava > odabraniProjekat.MaksStudenata)
             {
                 MessageBox.Show("Broj prihvaćenih prijava za projekat prelazi maksimalan broj studenata!", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
